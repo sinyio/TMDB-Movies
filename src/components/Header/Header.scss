@@ -1,0 +1,24 @@
+.header {
+  margin: 0 2.5rem;
+  padding: 1.5rem 0;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header__link {
+  margin: 0 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+
+  &:hover {
+    color: rgb(126, 238, 255);
+  }
+}
+
+.header__icon {
+  width: 160px;
+  margin-right: 40px;
+  cursor: pointer;
+}
