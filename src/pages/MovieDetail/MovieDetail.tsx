@@ -51,7 +51,7 @@ const MovieDetail = () => {
       <div className="movie__intro">
         <img
           className="movie__backdrop"
-          src={`https://image.tmdb.org/t/p/original${
+          src={`https://image.tmdb.org/t/p/w1280${
             currentMovieDetail ? currentMovieDetail.backdrop_path : ""
           }`}
         />
@@ -61,7 +61,7 @@ const MovieDetail = () => {
           <div className="movie__posterBox">
             <img
               className="movie__poster"
-              src={`https://image.tmdb.org/t/p/original${
+              src={`https://image.tmdb.org/t/p/w500${
                 currentMovieDetail ? currentMovieDetail.poster_path : ""
               }`}
             />

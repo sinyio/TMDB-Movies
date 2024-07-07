@@ -22,7 +22,7 @@ const Card: FC<CardProps> = ({ movie }) => {
         <div className="card">
           <img
             className="cards__img"
-            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
           />
           <div className="cards__overlay">
             <div className="card__title">{movie.original_title}</div>
