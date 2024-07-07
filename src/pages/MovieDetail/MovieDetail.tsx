@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import "./MovieDetail.scss";
 import { useParams } from "react-router-dom";
+import styles from './MovieDetail.module.css'
 
 interface Genre {
   id: number;
@@ -17,7 +17,6 @@ interface MovieDetail {
   poster_path: string;
   backdrop_path: string;
   original_title: string;
-  tagline: string;
   vote_average: string;
   vote_count: number;
   runtime: string;
@@ -47,55 +46,52 @@ const MovieDetail = () => {
   }, [getData]);
 
   return (
-    <div className="movie">
-      <div className="movie__intro">
+    <div className={styles.movie}>
+      <div className={styles.movie_intro}>
         <img
-          className="movie__backdrop"
+          className={styles.movie_backdrop}
           src={`https://image.tmdb.org/t/p/w1280${
             currentMovieDetail ? currentMovieDetail.backdrop_path : ""
           }`}
         />
       </div>
-      <div className="movie__detail">
-        <div className="movie__detailLeft">
-          <div className="movie__posterBox">
+      <div className={styles.movie_detail}>
+        <div className={styles.movie_detail_left}>
+          <div>
             <img
-              className="movie__poster"
+              className={styles.movie_poster}
               src={`https://image.tmdb.org/t/p/w500${
                 currentMovieDetail ? currentMovieDetail.poster_path : ""
               }`}
             />
           </div>
         </div>
-        <div className="movie__detailRight">
-          <div className="movie__detailRightTop">
-            <div className="movie__name">
+        <div className={styles.movie_detail_right}>
+          <div className={styles.movie__detailRight_top}>
+            <div className={styles.movie_name}>
               {currentMovieDetail ? currentMovieDetail.original_title : ""}
             </div>
-            <div className="movie__tagline">
-              {currentMovieDetail ? currentMovieDetail.tagline : ""}
-            </div>
-            <div className="movie__rating">
-              {currentMovieDetail ? currentMovieDetail.vote_average : ""}{" "}
-              <span className="movie__voteCount">
+            <div className={styles.movie_rating}>
+              {currentMovieDetail ? currentMovieDetail.vote_average : ""}
+              <span className={styles.movie_vote_count}>
                 {currentMovieDetail
                   ? "(" + currentMovieDetail.vote_count + ") votes"
                   : ""}
               </span>
             </div>
-            <div className="movie__runtime">
+            <div className={styles.movie_runtime}>
               {currentMovieDetail ? currentMovieDetail.runtime + " mins" : ""}
             </div>
-            <div className="movie__releaseDate">
+            <div className={styles.movie_release_date}>
               {currentMovieDetail
                 ? "Release date: " + currentMovieDetail.release_date
                 : ""}
             </div>
-            <div className="movie__genres">
+            <div className={styles.movie_genres}>
               {currentMovieDetail && currentMovieDetail.genres
                 ? currentMovieDetail.genres.map((genre) => (
                     <>
-                      <span className="movie__genre" key={genre.id}>
+                      <span className={styles.movie_genre} key={genre.id}>
                         {genre.name}
                       </span>
                     </>
@@ -103,17 +99,17 @@ const MovieDetail = () => {
                 : ""}
             </div>
           </div>
-          <div className="movie__detailWrapper">
-            <div className="synopsisText">Synopsis</div>
+          <div className={styles.movie_detail_wrapepr}>
+            <div className={styles.movie_synopsis_text}>Synopsis</div>
             <div>{currentMovieDetail ? currentMovieDetail.overview : ""}</div>
           </div>
         </div>
       </div>
-      <div className="movie__links">
-        <div className="movie__heading">Useful Links</div>
+      <div className={styles.movie_links}>
+        <div className={styles.movie_heading}>Useful Links</div>
         {currentMovieDetail && (
           <a href={currentMovieDetail.homepage} target="_blank">
-            <span className="movie__homeButton movie__Button">Homepage</span>
+            <span className={`${styles.home_button} ${styles.movie_button}`}>Homepage</span>
           </a>
         )}
         {currentMovieDetail && (
@@ -121,20 +117,20 @@ const MovieDetail = () => {
             href={"https://www.imdb.com/title/" + currentMovieDetail.imdb_id}
             target="_blank"
           >
-            <span className="movie__imdbButton movie__Button">On IMDb</span>
+            <span className={`${styles.imdb_button} ${styles.movie_button}`}>On IMDb</span>
           </a>
         )}
       </div>
-      <div className="movie__heading">Production companies</div>
-      <div className="movie__production">
+      <div className={styles.movie_heading}>Production companies</div>
+      <div className={styles.movie_production}>
         {currentMovieDetail &&
           currentMovieDetail.production_companies &&
           currentMovieDetail.production_companies.map((company) => (
             <>
               {company.logo_path && (
-                <span className="productionCompanyImage">
+                <span className={styles.production_company_image}>
                   <img
-                    className="movie__productionComapany"
+                    className={styles.production_comapany}
                     src={
                       "https://image.tmdb.org/t/p/original" + company.logo_path
                     }

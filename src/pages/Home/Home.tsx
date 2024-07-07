@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./Home.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
-import MovieList from "../../components/movieList/movieList";
+import MovieList from "../../components/MovieList/MovieList";
+import styles from './Home.module.css'
 
-interface CarouselPopularMovie {
+interface CarouselMovie {
   id: number;
   original_title: string;
   release_date: string;
@@ -15,7 +15,7 @@ interface CarouselPopularMovie {
 }
 
 const Home = () => {
-  const [popularMovies, setPopularMovies] = useState<CarouselPopularMovie[]>(
+  const [popularMovies, setPopularMovies] = useState<CarouselMovie[]>(
     []
   );
 
@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="poster">
+      <div className={styles.poster}>
         <Carousel
           showThumbs={false}
           autoPlay={true}
@@ -39,20 +39,20 @@ const Home = () => {
         >
           {popularMovies.map((movie) => (
             <Link to={`/movie/${movie.id}`}>
-              <div className="posterImage">
+              <div className={styles.movie}>
                 <img
                   src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                 />
               </div>
-              <div className="posterImage__overlay">
-                <div className="posterImage__title">{movie.original_title}</div>
-                <div className="posterImage__runtime">
+              <div className={styles.movie_overlay}>
+                <div className={styles.movie_title}>{movie.original_title}</div>
+                <div className={styles.movie_release_date}>
                   {movie.release_date}
-                  <span className="posterImage__rating">
+                  <span className={styles.movie_rating}>
                     {movie.vote_average}
                   </span>
                 </div>
-                <div className="posterImage__description">{movie.overview}</div>
+                <div className={styles.movie_description}>{movie.overview}</div>
               </div>
             </Link>
           ))}

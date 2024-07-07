@@ -1,0 +1,121 @@
+.card {
+  display: inline-block;
+  transition: transform 0.2s;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem;
+  cursor: pointer;
+  min-width: 200px;
+  height: 300px;
+  border: 1px solid rgb(99, 99, 99);
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:hover .card_overlay {
+    opacity: 1;
+  }
+}
+
+.card_img {
+  height: 100%;
+}
+
+.card_overlay {
+  position: absolute;
+  padding: 1rem;
+  width: 100%;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+  opacity: 0;
+  transition: 0.2s ease opacity;
+}
+
+.card_title {
+  font-weight: 900;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.card_wrapper {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.card_rating {
+  float: right;
+  color: rgb(205, 212, 5);
+  font-weight: 700;
+}
+
+.card_description {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (width < 1280px) {
+  .card {
+    min-width: 180px;
+    height: 270px;
+  }
+}
+
+@media (width < 1024px) {
+  .card {
+    min-width: 150px;
+    height: 225px;
+  }
+
+  .card_title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .card_description {
+    margin-bottom: 0;
+  }
+}
+
+@media (width < 768px) {
+  .card {
+    min-width: 120px;
+    height: 180px;
+  }
+
+  .card_overlay {
+    opacity: 1;
+  }
+
+  .card_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card_description {
+    display: none;
+    margin-bottom: 0;
+  }
+}
+
+@media (width < 568px) {
+  .card {
+    min-width: 100px;
+    height: 150px;
+    margin: 0.5rem;
+  }
+
+  .card_overlay {
+    padding: 0.5rem;
+  }
+
+  .card_title {
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+}

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import "./Card.scss";
+import styles from './Card.module.css'
 
 export interface Movie {
   id: number;
@@ -19,21 +19,20 @@ const Card: FC<CardProps> = ({ movie }) => {
   return (
     <>
       <Link to={`/movie/${movie.id}`}>
-        <div className="card">
+        <div className={styles.card}>
           <img
-            className="cards__img"
+            className={styles.card_img}
             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
           />
-          <div className="cards__overlay">
-            <div className="card__title">{movie.original_title}</div>
-            <div className="card__runtime">
-              {movie.release_date}
-              <span className="card__rating">
+          <div className={styles.card_overlay}>
+            <div className={styles.card_title}>{movie.original_title}</div>
+            <div className={styles.card_wrapper}>
+              <span className={styles.card_release_date}>{movie.release_date}</span>
+              <span className={styles.card_rating}>
                 {movie.vote_average}
-                <i className="fas fa-star" />
               </span>
             </div>
-            <div className="card__description">
+            <div className={styles.card_description}>
               {movie.overview.slice(0, 118) + "..."}
             </div>
           </div>

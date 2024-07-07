@@ -1,0 +1,56 @@
+.header {
+  margin: 0 2.5rem;
+  padding: 1.5rem 0;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav_link {
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s ease color;
+
+  &:hover {
+    color: rgb(126, 238, 255);
+  }
+}
+
+.nav_link:not(:last-child) {
+  margin-right: 4rem;
+}
+
+.icon {
+  margin-right: 4rem;
+  width: 160px;
+  cursor: pointer;
+}
+
+@media (width < 768px) {
+  .header {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (width < 568px) {
+  .icon {
+    width: 8rem;
+  }
+
+  .nav_link {
+    font-size: 1rem;
+  }
+
+  .nav_link:not(:last-child) {
+    margin-right: 2rem;
+  }
+}

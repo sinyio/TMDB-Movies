@@ -1,22 +1,24 @@
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
-import "./Header.scss";
+import styles from './Header.module.css'
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className={styles.header}>
       <Link to="/">
-        <img className="header__icon" src={logo} />
+        <img className={styles.icon} src={logo} />
       </Link>
-      <Link className="header__link" to="/movies/popular">
-        Popular
-      </Link>
-      <Link className="header__link" to="/movies/top_rated">
-        Top Rated
-      </Link>
-      <Link className="header__link" to="/movies/upcoming">
-        Upcoming
-      </Link>
+      <nav className={styles.nav}>
+        <Link className={styles.nav_link} to="/movies/popular">
+          Popular
+        </Link>
+        <Link className={styles.nav_link} to="/movies/top_rated">
+          Top Rated
+        </Link>
+        <Link className={styles.nav_link} to="/movies/upcoming">
+          Upcoming
+        </Link>
+      </nav>
     </div>
   );
 };

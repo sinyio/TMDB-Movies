@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import Card, { Movie } from "../Card/Card";
-import "./movieList.scss";
+import styles from './MovieList.module.css'
 
 const MovieList = () => {
   const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -23,10 +23,10 @@ const MovieList = () => {
 
   return (
     <>
-      <h2 className="list__title">
+      <h2 className={styles.title}>
         {(type ? type : "POPULAR").replace("_", " ").toUpperCase()}
       </h2>
-      <ul className="movie__list">
+      <ul className={styles.movie_list}>
         {movieList.map((movie) => (
           <li key={movie.id}>
             <Card movie={movie} />
