@@ -86,6 +86,7 @@
   .card {
     min-width: 120px;
     height: 180px;
+    margin: 0.8rem;
   }
 
   .card_overlay {
