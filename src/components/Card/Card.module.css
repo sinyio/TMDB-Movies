@@ -1,26 +1,26 @@
 .card {
   display: inline-block;
-  transition: transform 0.2s;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  margin: 1rem;
   cursor: pointer;
-  min-width: 200px;
   height: 300px;
   border: 1px solid rgb(99, 99, 99);
+  transition: ease-out 0.3s transform;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.14);
   }
 
-  &:hover .card_overlay {
-    opacity: 1;
-  }
+}
+
+.card:hover .card_overlay {
+  opacity: 1;
 }
 
 .card_img {
   height: 100%;
+  object-fit: cover;
 }
 
 .card_overlay {
@@ -33,7 +33,7 @@
   justify-content: flex-end;
   background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
   opacity: 0;
-  transition: 0.2s ease opacity;
+  transition: 0.3s ease-out opacity;
 }
 
 .card_title {
@@ -104,7 +104,7 @@
   }
 }
 
-@media (width < 568px) {
+@media (width < 576px) {
   .card {
     min-width: 100px;
     height: 150px;

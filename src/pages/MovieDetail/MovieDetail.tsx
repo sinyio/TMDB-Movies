@@ -1,19 +1,20 @@
-import { useCallback, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from './MovieDetail.module.css'
+import styles from "./MovieDetail.module.css";
+import { api_key } from "../../App";
 
-interface Genre {
+interface IGenre {
   id: number;
   name: string;
 }
 
-interface ProductionCompanies {
+interface IProductionCompanies {
   id: number;
   name: string;
   logo_path: string;
 }
 
-interface MovieDetail {
+interface IMovieDetail {
   poster_path: string;
   backdrop_path: string;
   original_title: string;
@@ -21,32 +22,26 @@ interface MovieDetail {
   vote_count: number;
   runtime: string;
   release_date: string;
-  genres: Array<Genre>;
+  genres: Array<IGenre>;
   overview: string;
   homepage: string;
   imdb_id: number;
-  production_companies: Array<ProductionCompanies>;
+  production_companies: Array<IProductionCompanies>;
 }
 
-const MovieDetail = () => {
-  const [currentMovieDetail, setCurrentMovieDetail] = useState<MovieDetail>();
+const MovieDetail: FC = () => {
+  const [currentMovieDetail, setCurrentMovieDetail] = useState<IMovieDetail>();
   const { id } = useParams();
 
-  const getData = useCallback(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=92165677886e7ff9a89b57f489209b9b`
-    )
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`)
       .then((res) => res.json())
       .then((data) => setCurrentMovieDetail(data));
+    window.scrollTo(0, 0);
   }, [id]);
 
-  useEffect(() => {
-    getData();
-    window.scrollTo(0, 0);
-  }, [getData]);
-
   return (
-    <div className={styles.movie}>
+    <>
       <div className={styles.movie_intro}>
         <img
           className={styles.movie_backdrop}
@@ -109,7 +104,9 @@ const MovieDetail = () => {
         <div className={styles.movie_heading}>Useful Links</div>
         {currentMovieDetail && (
           <a href={currentMovieDetail.homepage} target="_blank">
-            <span className={`${styles.home_button} ${styles.movie_button}`}>Homepage</span>
+            <span className={`${styles.home_button} ${styles.movie_button}`}>
+              Homepage
+            </span>
           </a>
         )}
         {currentMovieDetail && (
@@ -117,7 +114,9 @@ const MovieDetail = () => {
             href={"https://www.imdb.com/title/" + currentMovieDetail.imdb_id}
             target="_blank"
           >
-            <span className={`${styles.imdb_button} ${styles.movie_button}`}>On IMDb</span>
+            <span className={`${styles.imdb_button} ${styles.movie_button}`}>
+              On IMDb
+            </span>
           </a>
         )}
       </div>
@@ -141,7 +140,7 @@ const MovieDetail = () => {
             </>
           ))}
       </div>
-    </div>
+    </>
   );
 };
 

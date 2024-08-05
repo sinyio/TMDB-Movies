@@ -41,7 +41,6 @@
 .movie_description {
   font-size: 1rem;
   line-height: 1.5rem;
-  display: flex;
   text-align: left;
   width: 50%;
 }
@@ -87,6 +86,10 @@
 
   .movie_description {
     width: 100%;
+  }
+
+  .movie_description {
+    font-size: 0.9rem;
   }
 }
 
