@@ -27,14 +27,14 @@ const Home: FC = () => {
   return (
     <>
       <Carousel
+        className={styles.carousel}
         showThumbs={false}
-        autoPlay={true}
         transitionTime={3}
-        infiniteLoop={true}
+        infiniteLoop
         showStatus={false}
       >
         {popularMovies.map((movie) => (
-          <Link key={movie.id} to={`/movie/${movie.id}`}>
+          <Link tabIndex={-1} key={movie.id} to={`/movie/${movie.id}`}>
             <div className={styles.movie}>
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}

@@ -5,6 +5,7 @@
   overflow: hidden;
   cursor: pointer;
   height: 300px;
+  aspect-ratio: 2/3;
   border: 1px solid rgb(99, 99, 99);
   transition: ease-out 0.3s transform;
 
@@ -60,14 +61,12 @@
 
 @media (width < 1280px) {
   .card {
-    min-width: 180px;
     height: 270px;
   }
 }
 
 @media (width < 1024px) {
   .card {
-    min-width: 150px;
     height: 225px;
   }
 
@@ -84,9 +83,7 @@
 
 @media (width < 768px) {
   .card {
-    min-width: 120px;
     height: 180px;
-    margin: 0.8rem;
   }
 
   .card_overlay {
@@ -106,9 +103,7 @@
 
 @media (width < 576px) {
   .card {
-    min-width: 100px;
     height: 150px;
-    margin: 0.5rem;
   }
 
   .card_overlay {

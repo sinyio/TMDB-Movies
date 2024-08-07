@@ -27,7 +27,7 @@
 
 @media (width < 1280px) {
   .movie_list {
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .title {
@@ -35,7 +35,7 @@
   }
 }
 
-@media (width < 1024px) {
+@media (width < 1080px) {
   .movie_list {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -47,7 +47,7 @@
 
 @media (width < 768px) {
   .movie_list {
-    gap: 0;
+    gap: 1.2rem;
   }
 
   .title {

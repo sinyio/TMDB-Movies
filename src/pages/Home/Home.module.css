@@ -1,5 +1,6 @@
 .movie {
   height: 600px;
+  
 
   img {
     object-fit: cover;
@@ -43,6 +44,16 @@
   line-height: 1.5rem;
   text-align: left;
   width: 50%;
+}
+
+.carousel {
+  margin: 0 -3rem;
+}
+
+@media (width < 1280px) {
+  .carousel {
+    margin: 0 -1rem;
+  }
 }
 
 @media (width < 1024px) {

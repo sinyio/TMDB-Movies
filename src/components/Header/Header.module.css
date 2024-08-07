@@ -1,6 +1,5 @@
 .header {
-  margin: 0 2.5rem;
-  padding: 1.5rem 0;
+  padding: 1.5rem 2.5rem;
   align-items: center;
   display: flex;
   justify-content: flex-start;
@@ -28,9 +27,19 @@
   cursor: pointer;
 }
 
+@media (width < 1280px) {
+  .nav_link:not(:last-child) {
+    margin-right: 3rem;
+  }
+
+  .icon {
+    margin-right: 3rem;
+  }
+}
+
 @media (width < 768px) {
   .header {
-    margin: 0 1rem;
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
   }
@@ -41,7 +50,7 @@
   }
 }
 
-@media (width < 568px) {
+@media (width < 576px) {
   .icon {
     width: 8rem;
   }
